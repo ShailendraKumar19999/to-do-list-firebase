@@ -49,9 +49,9 @@ function App() {
         <Add />
       </div>
       <div className="todo_container">
-        {todos.map((todo) => (
+        {todos.map((todo,id) => (
           <Todo
-            key={todo.id}
+            id={id}
             todo={todo}
             toggleComplete={toggleComplete}
             handleDelete={handleDelete}
