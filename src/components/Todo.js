@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Todo({ todo, toggleComplete, handleEdit, handleDelete }) {
+function Todo({ id,todo, toggleComplete, handleEdit, handleDelete }) {
   const [newTitle, setNewTitle] = useState(todo.task);
 
   const handleChange = (e) => {
@@ -12,15 +12,27 @@ function Todo({ todo, toggleComplete, handleEdit, handleDelete }) {
       setNewTitle(e.target.value);
     }
   };
+  
   return (
     <div className="todo input">
-      <div>
-        <input
-          style={{ textDecoration: todo.completed && 'line-through' }}
-          value={todo.task === '' ? newTitle : todo.task}
-          className="list"
-          onChange={handleChange}
-        />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+        }}
+      >
+        <h2>
+          {id + 1}. {'\u00A0'}
+        </h2>
+        <div>
+          <input
+            style={{ textDecoration: todo.completed && 'line-through' }}
+            value={todo.task === '' ? newTitle : todo.task}
+            className="list"
+            onChange={handleChange}
+          />
+        </div>
       </div>
       <div className="btn-div">
         <button
